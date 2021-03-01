@@ -1,4 +1,4 @@
-# 1-setup
+# Setup
 
 [Terug naar het Workshop Script](handson.md)
 
@@ -85,6 +85,6 @@ Als het goed is heb je nu in je werkdirectory 3 Clones van repositories:
 
 ![workdir image](/images/ls2.png)
 
-[Naar stap 2-basics](2-basics.md)
+[Naar stap 2: Basics](2-basics.md)
 
 [Terug naar het Workshop Script](handson.md)
