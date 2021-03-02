@@ -51,7 +51,7 @@ git commit -m "Dit is de eerste file die we toevoegen"
 
 Je krijgt nu de terugkoppeling, waarbij we even in detail kijken naar de output:
 
-"[main <hashcode>] Dit is de eerste file die we toevoegen"
+"[main {hashcode}] Dit is de eerste file die we toevoegen"
 
 - main is de branch waarop we deze file toevoegen
 - hashcode is de SHA-1 hash die onze commit uniek identificeert
@@ -77,7 +77,8 @@ Wanneer we met verschillende mensen aan hetzelfde project werken, kan het natuur
 - een merge, we hebben lokaal wel nieuwe commits => dan worden de commits van de remote branch aan onze branch toegevoegd in een nieuwe commit. Conflicten worden middels een merge conflict opgelost;
 - een rebase, dit werkt de lokale branch bij met de centrale commits en past dan de lokale wijzigingen weer toe (er boven op).
 
-> DEMO Mocht dit niet helemaal duidelijk zijn... geen nood, we zullen in de volgende stap naar het verschil tussen deze 3 varianten kijken.
+> DEMO Mocht dit niet helemaal duidelijk zijn...
+> Geen nood, we zullen in de volgende stap naar het verschil tussen deze 3 varianten kijken.
 
 ```bash
 git pull
