@@ -55,6 +55,8 @@ In deze workshop zullen we gebruik maken van GitHub voor het opslaan van onze ce
 
 Heb je nog geen account, dan kun je gebruik maken van de GitHub Sign Up. Deze vindt je hier, rechtsboven: https://github.com/
 
+Let op: GitHub vereist vanaf 13 augustus 2021 een Token of SSH based autenticatie. Meer info: [Token authentication requirements for Git operations](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)
+
 ## Smoketest
 
 Bij deze test controleer je de versie van Git met het volgende commando:

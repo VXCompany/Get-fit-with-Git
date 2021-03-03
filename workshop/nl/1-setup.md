@@ -28,7 +28,7 @@ Maak vervolgens lokaal via een shell een werkdirectory aan voor de training, bij
 git clone {plak de URL van het clipboard}
 ```
 
-Controleer bijvoorbeeld met "ls" de inhoud van je clone (je zult hier in ieder geval een README.mg bestand zien staan):
+Controleer bijvoorbeeld met "ls" of "dir" de inhoud van je clone (je zult hier in ieder geval een README.mg bestand zien staan):
 
 ![ls clone image](/images/ls1.png)
 
@@ -49,7 +49,12 @@ Maak lokaal via een shell in de werkdirectory een nieuwe folder aan met de naam 
 Tip: als je in de juiste directory staat, kun je deze oneliner proberen:
 
 ```bash
+# Voor MacOS, Linux en Windows Subsystem for Linux
 curl -L https://github.com/VXCompany/Get-fit-with-Git/raw/main/demo/demo.zip | jar -xv
+
+# Voor PowerShell
+Invoke-WebRequest https://github.com/VXCompany/Get-fit-with-Git/raw/main/demo/demo.zip -OutFile demo.zip
+Expand-Archive demo.zip .
 ```
 
 Als het goed is heb je nu een directory met een aantal demo bestanden (index.html, css en wat afbeeldingen). Nu zijn we zover deze bestanden in een lokale repository te zetten en dan te koppelen aan de 2e Git repo op GitHub:
