@@ -2,7 +2,7 @@
 
 [Terug naar het Workshop Script](handson.md)
 
-### Branch
+### 1. Branch
 
 Samenwerken staat bij Git natuurlijk centraal. Waarschijnlijk zijn we allemaal wel bekend met "branches". Deze term komt niet van Git zelf, maar werd al veel langer gebruikt voor het separaat bij elkaar houden van wijzigingen. Bij Git is er wel een belangrijk verschil: branches zijn geen containers met files of commits, maar pointers naar commits. Dus op het moment, dat je een nieuwe branch maakt wordt er een pointer gemaakt naar de huidige commit met de naam van de branch.
 

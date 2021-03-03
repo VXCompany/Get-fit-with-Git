@@ -4,7 +4,7 @@
 
 Het kan natuurlijk gebeuren, dat we een lokale commit toch niet meer willen. Omdat er 2 manieren zijn om een commit te "resetten" is het belangrijk eerst te bepalen of we de wijzigingen lokaal willen behouden of in zijn geheel verwijderen.
 
-### Soft reset
+### 1. Soft reset
 
 Een soft reset haalt de commit weg, maar laat de wijzigingen (edits, nieuwe bestanden, etc.) wel staan. Dit worden dan "Staged changes".
 
@@ -71,7 +71,7 @@ We voegen nu deze laatste file weer toe aan onze lokale commit:
 git commit -m "Bestand 7 toegevoegd"
 ```
 
-### Hard reset
+### 2. Hard reset
 
 Wanneer we besluiten om dit laatste bestand niet alleen uit de commit te halen, maar eigenlijk compleet te verwijderen (ongedaan te maken), kiezen we voor een harde reset. Voor we dit doen, controleer nog even de git log en zie de laatste commit weer staan. We gaan deze nu weer terugdraaien, inclusief het verwijderen van het bestand:
 

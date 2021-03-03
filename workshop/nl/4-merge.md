@@ -2,7 +2,7 @@
 
 [Terug naar het Workshop Script](handson.md)
 
-### Merge
+### 1. Merge
 
 We zijn nu dus op het punt, dat we zowel lokaal als centraal/ remote een wijziging hebben en daarom niet vooruit kunnen spoelen. Git heeft hier 2 oplossingen voor: merge en rebase. We beginnen met de eerste:
 
@@ -28,7 +28,7 @@ git push
 
 Controleer nu zelf de commit history op GitHub en zie ook daar de nieuwe commit verschijnen.
 
-### Merge conflict
+### 2. Merge conflict
 
 Uiteraard is het voorgaande scenario eenvoudig, dat komt vooral omdat we de wijzigingen in aparte bestanden hebben zitten. Wat gebeurt er als we wijzigingen hebben in dezelfde file?
 

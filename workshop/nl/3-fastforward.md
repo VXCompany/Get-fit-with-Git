@@ -4,7 +4,7 @@
 
 In de vorige stap haalden we (mogelijke) wijzigingen van de centrale/ remote repo lokaal. Het doel was daarbij natuurlijk onze lokale repo bij te werken en eventuele lokale aanpassingen te behouden. We zullen in een latere stap kijken naar branches en Pull Requests, waar dit een belangrijk onderwerp is, maar eerst even de 3 verschillende strategieen bekijken.
 
-### De Fast-forward
+### 1. De Fast-forward
 
 De eenvoudigste is de Fast-forward en het doet precies wat het zegt: snel vooruit spoelen. Dit is alleen van toepassing als:
 
@@ -48,7 +48,7 @@ De nieuwe git history toont de binnengekomen commit, deze is er zonder bijwerkin
 
 ![](/images/commit5.png)
 
-### Fast-forward only
+### 2. Fast-forward only
 
 Fast-forward is dus een eenvoudige manier om zonder bijwerkingen centrale wijzigingen lokaal te integreren. Sterker nog, het is misschien wel aan te raden om de standaard strategie "--ff-only" te maken... eens even zien wat daar het effect van zou zijn:
 

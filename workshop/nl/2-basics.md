@@ -2,7 +2,7 @@
 
 [Terug naar het Workshop Script](handson.md)
 
-### The Basics: een bestand toevoegen
+### 1. De basis: een bestand toevoegen
 
 Navigeer naar je de clone van je eerste repository: "gfwg-demo-1"
 
@@ -59,7 +59,7 @@ Je krijgt nu de terugkoppeling, waarbij we even in detail kijken naar de output:
 
 Vraag nogmaals de status op en zie het verschil.
 
-### De lokale wijzigingen doorzetten naar de remote repository
+### 2. De lokale wijzigingen doorzetten naar de remote repository
 
 Onze lokale Git repo is bijgewerkt (met dat laatste commit commando). Als we nu ook de remote repository willen bijwerken, moeten we onze wijzigingen "pushen"
 
@@ -67,7 +67,7 @@ Onze lokale Git repo is bijgewerkt (met dat laatste commit commando). Als we nu 
 git push
 ```
 
-### Wijzigingen binnenhalen
+### 3. Wijzigingen binnenhalen
 
 Wanneer we met verschillende mensen aan hetzelfde project werken, kan het natuurlijk gebeuren, dat iemand anders wijzigingen heeft doorgezet die wij lokaal nog niet hebben. Om die ook binnen te halen maken we gebruik van "Git pull". Maar hier is gelijk iets bijzonders aan de hand:
 

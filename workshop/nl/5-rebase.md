@@ -2,7 +2,7 @@
 
 [Terug naar het Workshop Script](handson.md)
 
-### Rebase
+### 1. Rebase
 
 Van de eerder genoemde typen is "rebase" misschien het lastigst. Laten we eerst eens kijken hoe hij werkt....
 

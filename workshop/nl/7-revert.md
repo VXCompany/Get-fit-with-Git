@@ -2,7 +2,7 @@
 
 [Terug naar het Workshop Script](handson.md)
 
-### Revert
+### 1. Revert
 
 Wanneer we een commit met "git reset" terugdraaien, maken we de commit in zijn geheel ongedaan. Deze verdwijnt dus ook uit de git history. We kunnen een commit ook terugdraaien, maar de git history intact laten. Hiervoor gebruiken we de "git revert".
 
