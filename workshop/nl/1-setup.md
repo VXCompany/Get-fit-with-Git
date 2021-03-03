@@ -2,7 +2,7 @@
 
 [Terug naar het Workshop Script](handson.md)
 
-### Maak een eigen Git repository
+### 1. Maak een eigen Git repository
 
 Login op GitHub met je eigen account (bestaand account, zie eventueel de [voorbereiding](voorbereiding.md)). Wanneer je bent ingelogd, maak je een nieuwe repository aan door bijvoorbeeld op het "+"-teken rechtsboven te klikken.
 
@@ -12,7 +12,7 @@ Login op GitHub met je eigen account (bestaand account, zie eventueel de [voorbe
 - Kies zelf een omschrijving en maak het een Public repo;
 - Kies voor "Add a README file".
 
-### Clone deze Git repository
+### 2. Clone deze Git repository
 
 We gaan van deze repository nu lokaal een kopie maken, zodat we er straks mee aan de slag kunnen.
 
@@ -32,13 +32,13 @@ Controleer bijvoorbeeld met "ls" of "dir" de inhoud van je clone (je zult hier i
 
 ![ls clone image](/images/ls1.png)
 
-### Maak een 2e eigen Git repository
+### 3. Maak een 2e eigen Git repository
 
 Maak nu via de GitHub UI een 2e public repository aan (met de naam "gfwg-demo-2"), maar kies nu NIET voor het initialiseren van de repo met een README bestand.
 
 Je komt nu in een ander scherm terecht en we kunnen de repository nog niet clonen.
 
-### Koppel een locale repo aan deze Git repository
+### 4. Koppel een lokale repo aan deze Git repository
 
 We gaan lokaal nu een repository maken en koppelen aan de zojuist aangemaakte Git repo.
 
@@ -70,7 +70,7 @@ git push -u origin main
 
 Wanneer je nu op GitHub deze 2e repo bekijkt, zul je daar de demo bestanden terug zien.
 
-### Fork en clone een bestaande repository
+### 5. Fork en clone een bestaande repository
 
 ![](/images/fork1.png)
 
