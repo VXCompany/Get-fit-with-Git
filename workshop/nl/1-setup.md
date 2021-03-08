@@ -16,7 +16,7 @@ Login op GitHub met je eigen account (bestaand account, zie eventueel de [voorbe
 
 We gaan van deze repository nu lokaal een kopie maken, zodat we er straks mee aan de slag kunnen.
 
-![](/images/clone1.png)
+![](/images/clone2.png)
 
 We beginnen met het opslaan van de "clone" URL op ons clipboard. We klikken hiervoor op "Code" en dan op het clipboard icon achter de HTTP URL:
 
