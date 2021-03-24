@@ -3,6 +3,9 @@
 - [Git concepten](#git-concepten)
 - [Git setup](#git-setup)
 - [Git basics](#git-basics)
+- [Wijzigingen verwerken](#wijzigingen-verwerken)
+- [Wijzigingen ongedaan maken](#wijzigingen-ongedaan-maken)
+- [Gouden Regel](#gouden-regel)
 
 ## Git concepten
 
@@ -93,6 +96,18 @@ Vraag de status van een repository op met:
 git status
 ```
 
+### Git log
+
+Vraag het log op met:
+
+```bash
+git log
+
+# of als oneliner
+
+git log --pretty=oneline
+```
+
 ### Add
 
 > Wat zijn "Untracked files"?
@@ -140,3 +155,150 @@ Wanneer je niets meegeeft, dan zal de standaard strategie een "merge" zijn. Dit 
 ```bash
 git pull
 ```
+
+### Branch
+
+Samenwerken in Git loopt via branches. Een nieuwe branch met de naam "feature1" maken en lokaal aan werken:
+
+```bash
+git branch feature/feature1
+git checkout feature/feature1
+```
+
+Wanneer je de lokale wijzigingen centraal wil doorvoeren:
+
+```bash
+git push
+
+#fatal: The current branch feature/feature1 has no upstream branch.
+#To push the current branch and set the remote as upstream, use
+#
+#    git push --set-upstream origin feature/feature1
+
+git push --set-upstream origin feature/experiment1
+```
+
+## Wijzigingen verwerken
+
+## Fast-forward
+
+Fast-forward is dus een eenvoudige manier om zonder bijwerkingen centrale wijzigingen lokaal te integreren. Sterker nog, het is misschien daarom wel aan te raden om je standaard strategie "--ff-only" te maken!
+
+```bash
+git pull --ff-only
+```
+
+Wil je standaard je "git pull" op die manier laten reageren?
+
+```bash
+hint: Pulling without specifying how to reconcile divergent branches is
+hint: discouraged. You can squelch this message by running one of the following
+hint: commands sometime before your next pull:
+hint:
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+```
+
+### Merge
+
+Bij een "merge" worden beide wijzigingen verwerkt en wordt er een nieuwe commit gedaan. We hebben eerder gezien, dat "git pull" een "merge" doet als een "fast-forward" niet mogelijk is.
+
+```bash
+git pull
+```
+
+Wil je een specifieke branch in de huidige mergen?
+
+```bash
+git merge [branch naam]
+```
+
+Als Git meldt, dat er een conflict is (en er geen auto-merge kan plaatsvinden) kun je dat direct oplossen door het de file(s) in kwestie te bewerken en er voor te zorgen, dat alleen de wijzigingen overblijven die behouden moeten blijven. Git zet er in commentaar bij, wat waar vandaan komt.
+
+Voorbeeld: De "HEAD" die bovenin staat, verwijst naar de pointer lokaal. De commit hash die onderin staat, verwijst naar 1 specifieke commit in de history uit de branch samengevoegd wordt:
+
+```
+#Auto-merging test3.txt
+#CONFLICT (content): Merge conflict in test3.txt
+#Automatic merge failed; fix conflicts and then commit the result.
+
+<<<<<< HEAD
+lokale wijziging 1
+lokale wijziging 2
+
+=======
+remote wijziging 1
+>>>>>> 11f1820c232f2450450b74579e2264ae41f4cdab
+```
+
+Om dit op te lossen, kun je de file bewerken, opslaan en afsluiten. In het voorbeeld van hierboven: alles verwijderen behalve de regels die je wilt behouden:
+
+```
+lokale wijziging 1
+remote wijziging 1
+```
+
+Dit levert lokaal een wijziging op, die zul je moeten via add/commit/push moeten verwerken.
+
+### Rebase
+
+Je kunt een specifieke branch mergen in je huidige branch om de wijzigingen door te voeren, maar we hebben ook een "rebase" dat functioneel vergelijkbaar is. Belangrijk verschil: we krijgen geen nieuwe "merge commit" met de wijzigingen op onze feature branch en onze historie ("git log") is daarmee veel cleaner en makkelijker te begrijpen.
+
+Gegeven ons voorbeeld: we hebben na commit "B" een feature branch gemaakt en hierop zijn we aan de slag gegaan. Inmiddels bevat de main branch een wijziging "C", die we ook graag in onze feature branch zouden willen integreren. Een "rebase" maakt dit mogelijk.
+
+![](/images/rebase7.png)
+
+Dus in plaats van een "merge commit" met de wijzigingen, krijgen we nu de wijziging "C" als commit in onze feature branch. We krijgen ook een nieuwe commit voor onze wijzigingen op de feature branch zelf "D accent", dus er is wel een impact.
+
+```bash
+git checkout feature
+git rebase main
+```
+
+## Wijzigingen ongedaan maken
+
+### Reset
+
+Het kan natuurlijk gebeuren, dat we een lokale commit toch niet meer willen: we kunnen daarom een commit "resetten".
+
+```bash
+# een soft reset, HEAD min 1
+# haalt commit lokaal weg, maar laat wijzigingen staan (worden "Staged changes")
+git reset --soft HEAD~1
+
+# een hard reset, HEAD min 1
+# haalt commit + wijzigingen lokaal weg
+git reset --hard HEAD~1
+```
+
+### Revert
+
+Willen we het terugdraaien in de historie opnemen (als aparte commit), bijvoorbeeld omdat de wijzigingen al op de remote/centrale repo zijn toegepast, dan gebruiken we "git revert".
+
+```bash
+git revert 21e2988 #hash van de commit die je in een nieuwe commit wil terugdraaien
+```
+
+## Gouden regel
+
+### Don’t rebase a public branch!
+
+We hebben gezien, dat "git rebase" de historie herschrijft. Alleen wanneer je dit doet op een branch die je alleen zelf lokaal hebt (of waarvan je zeker weet dat niemand anders deze gebruikt) kun je dit veilig doen.
+
+We hanteren daarom altijd de regel: rebase is prima, maar niet op een publieke branch!
+
+Ter illustratie:
+
+1. John en Jane clonen dezelfde repo met daarin een feature branch;
+2. Er is een wijziging "C" die John graag in zijn feature branch wil hebben, dus kiest hij voor een "git rebase" van zijn feature branch;
+3. Hij "pushed" zijn feature branch naar de centrale repo en maakt daarbij dus een nieuwe commit voor "D" ("D accent") met een compleet nieuwe hash;
+4. Jane heeft commit "E" toegevoegd en wil haar feature branch ook central verwerken en doet een "git push";
+5. Git kan haar nu niet meer helpen, want de hash voor commit "D" bestaat helemaal niet meer in de feature branch!
+
+![](/images/rebase8.png)
