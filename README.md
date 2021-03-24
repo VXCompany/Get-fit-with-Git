@@ -11,3 +11,9 @@ Om deze workshop te kunnen volgen, moet je een aantal voorbereidingen treffen. V
 ## Het Workshop script
 
 Het [script](workshop/nl/handson.md) begeleidt de deelnemers bij de verschillende stappen van de workshop.
+
+## Cheat Sheet
+
+De gebruikte commando's uit de workshop met uitleg op 1 pagina:
+
+[Git Cheat Sheet](workshop/nl/cheatsheet.md)
